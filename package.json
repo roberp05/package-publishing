@@ -1,0 +1,18 @@
+{
+  "name": "npm-publish",
+  "version": "0.6.7",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Building your project... (replace with your actual build command)'",
+    "version:patch": "npm version patch && git add package*.json && git commit -m \"version $(npm --no-git-tag-version version)\"",
+    "version:minor": "npm version minor && git add package*.json && git commit -m \"version $(npm --no-git-tag-version version)\"",
+    "version:major": "npm version major && git add package*.json && git commit -m \"version $(npm --no-git-tag-version version)\"",
+    "publish:patch": "npm run build && npm run version:patch && npm publish",
+    "publish:minor": "npm run build && npm run version:minor && npm publish",
+    "publish:major": "npm run build && npm run version:major && npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
