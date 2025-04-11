@@ -5,7 +5,17 @@ const path = require('path');
 async function runPublish() {
   try {
     console.log('--- Starting publish process ---');
-    console.log('Git working directory is clean.');
+    
+    // Check Git status and potentially clean
+    const gitStatus = execSync('git status --porcelain').toString().trim();
+    if (gitStatus) {
+      console.warn('Warning: Git working directory is not clean. Attempting to clean...');
+      execSync('git add .'); // Add all changes
+      execSync('git commit -m "Autocommit before version bump"', { stdio: 'ignore' });
+      console.log('Autocommit performed.');
+    } else {
+      console.log('Git working directory is clean.');
+    }
 
     console.log('Running build...');
     execSync('npm run build', { stdio: 'inherit' });
