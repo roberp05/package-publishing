@@ -1,5 +1,5 @@
 {
-  "name": "npm-publish",
+  "name": "@roberp05/package-publishing",
   "version": "0.6.20",
   "main": "index.js",
   "scripts": {
