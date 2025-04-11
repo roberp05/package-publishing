@@ -28,9 +28,33 @@ async function runPublish() {
 
     const versionCommand = `npm version ${versionType}`;
     console.log(`Executing: ${versionCommand}`);
-    execSync(versionCommand, { stdio: 'inherit' }); // Error happens here
+    execSync(versionCommand, { stdio: 'inherit' });
+    console.log('Version updated in package.json and package-lock.json.');
 
-    // ... rest of your script ...
+    console.log('Adding package files to Git...');
+    execSync('git add package*.json', { stdio: 'inherit' });
+    console.log('package*.json added to Git.');
+
+    const newVersion = execSync('npm --no-git-tag-version version').toString().trim();
+    const commitMessage = `version ${newVersion}`;
+    console.log(`Committing changes: "${commitMessage}"`);
+    execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit' });
+    console.log('Changes committed to Git.');
+
+    const shouldPush = process.argv.includes('--push');
+    if (shouldPush) {
+      console.log('Pushing to Git...');
+      execSync('git push origin HEAD', { stdio: 'inherit' });
+      console.log('Pushed to Git.');
+    } else {
+      console.log('Skipping Git push (use --push to push)');
+    }
+
+    console.log('Publishing to npm...');
+    execSync('npm publish', { stdio: 'inherit' });
+    console.log('Successfully published to npm.');
+
+    console.log('--- Publish process complete ---');
 
   } catch (error) {
     console.error('An error occurred:', error);
