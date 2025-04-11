@@ -40,10 +40,6 @@ async function runPublish() {
     const newVersion = execSync('npm pkg get version').toString().trim().replace(/^"|"$/g, '');
     const shouldPush = process.argv.includes('--push');
     if (shouldPush) {
-      console.log('Pushing to Git...');
-      execSync('git push origin HEAD', { stdio: 'inherit' });
-      console.log('Pushed to Git.');
-
       // Create and push Git tag
       const tagName = `v${newVersion}`;
       console.log(`Creating Git tag: ${tagName}`);
