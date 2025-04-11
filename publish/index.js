@@ -35,11 +35,7 @@ async function runPublish() {
     execSync('git add package*.json', { stdio: 'inherit' });
     console.log('package*.json added to Git.');
 
-    const newVersion = execSync('npm pkg get version').toString().replace("\"", "");
-    const commitMessage = `version ${newVersion}`;
-    console.log(`Committing changes: "${commitMessage}"`);
-    execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit' });
-    console.log('Changes committed to Git.');
+    const newVersion = execSync('npm pkg get version').toString().trim().replace(/^"|"$/g, '');
 
     const shouldPush = process.argv.includes('--push');
     if (shouldPush) {
