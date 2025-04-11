@@ -49,7 +49,7 @@ async function runPublish() {
       console.log(`Creating Git tag: ${tagName}`);
       execSync(`git tag ${tagName.toString()}`);
       console.log(`Pushing Git tag: ${tagName}`);
-      execSync(`git push origin ${tagName}`);
+      execSync(`git push origin --tags`);
       console.log('Git tag created and pushed.');
     } else {
       console.log('Skipping Git push and tag (use --push to include)');
