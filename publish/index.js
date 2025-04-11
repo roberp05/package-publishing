@@ -47,7 +47,7 @@ async function runPublish() {
     }
 
     console.log('Publishing to npm...');
-    execSync('npm publish', { stdio: 'inherit' });
+    execSync('npm publish --access public', { stdio: 'inherit' });
     console.log('Successfully published to npm.');
 
     console.log('--- Publish process complete ---');
