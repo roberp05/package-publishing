@@ -15,7 +15,7 @@
     "github:publish:major": "node ./publish/github.js major",
     "github:publish:patch:with-push": "node ./publish/github.js patch --push",
     "github:publish:minor:with-push": "node ./publish/github.js minor --push",
-    "github:publish:major:with-push": "node ./publish/npgithubm.js major --push"
+    "github:publish:major:with-push": "node ./publish/github.js major --push"
   },
   "keywords": [],
   "author": "",
