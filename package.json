@@ -1,6 +1,6 @@
 {
   "name": "npm-publish",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "main": "index.js",
   "scripts": {
     "build": "echo 'Building your project... (replace with your actual build command)'",
