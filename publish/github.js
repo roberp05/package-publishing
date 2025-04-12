@@ -48,7 +48,7 @@ async function runPublish() {
       execSync(`git push origin ${tagName}`);
       console.log('Git tag created and pushed.');
       console.log(`Creating a Release with Github CLI for the TAG: ${tagName}`);
-      execSync(`gh release create ${tagName} --title "${tagName}" --notes "## Release Time   \r\nThis is a release for version ${tagName}.  \r\n**Just** trying to figure out the \`markdown\` in a \`notes:\` field"`);
+      execSync(`gh release create ${tagName} --title "${tagName}" --notes "## Release Time   \r\nThis is a release for version ${tagName}.  \r\n**Just** trying to figure out the ``markdown`` in a ``notes:`` field"`);
       console.log('Git tag created and pushed.');
 
     } else {
