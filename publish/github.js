@@ -47,6 +47,10 @@ async function runPublish() {
       console.log(`Pushing Git tag: ${tagName}`);
       execSync(`git push origin ${tagName}`);
       console.log('Git tag created and pushed.');
+      console.log(`Creating a Release with Github CLI for the TAG: ${tagName}`);
+      execSync(`gh release create ${tagName} --title "Version ${tagName}" --notes "This is a release for version ${tagName}"`);
+      console.log('Git tag created and pushed.');
+
     } else {
       console.log('Skipping Git push and tag (use --push to include)');
     }
