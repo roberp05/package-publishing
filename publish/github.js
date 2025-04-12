@@ -43,7 +43,7 @@ async function runPublish() {
       // Create and push Git tag
       const tagName = `v${newVersion}`;
       console.log(`Creating Git tag: ${tagName}`);
-      execSync("git tag -a '" + ${newVersion} +"' -m 'version: ${tagName}' -m '---------------------------' -m 'This is a test to see that when there are multiple `-m`s this will create multiple Paragraphs.' -m '### Therefore' -m 'There should actually be the version, then an underline, a paragraph, a heading and then this'");
+      execSync("git tag -a '" + newVersion +"' -m 'version: "+ tagName +"' -m '---------------------------' -m 'This is a test to see that when there are multiple `-m`s this will create multiple Paragraphs.' -m '### Therefore' -m 'There should actually be the version, then an underline, a paragraph, a heading and then this'");
       console.log(`Pushing Git tag: ${tagName}`);
       execSync(`git push origin ${tagName}`);
       console.log('Git tag created and pushed.');
