@@ -1,6 +1,6 @@
 {
   "name": "@roberp05/package-publishing",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "main": "index.js",
   "scripts": {
     "build": "echo 'Building your project... (replace with your actual build command)'",
